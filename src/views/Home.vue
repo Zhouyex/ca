@@ -7,7 +7,7 @@
 <script>
  
 import * as echarts from "echarts";
-import dataJson from "./mapdata";
+import dataJson from "../util/mapdata.json";
 export default {
   name: 'home',
   data(){

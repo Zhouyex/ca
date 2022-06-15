@@ -35,12 +35,12 @@
 </template>
 
 <script>
-import son from './son.vue'
+ 
 import scrolls from '../components/scroll.vue'
 // import vert from './vert.vue'
 export default {
     name: 'scroll',
-    components:{scrolls,son},
+    components:{scrolls},
     data () {
         return {
             textArr: [

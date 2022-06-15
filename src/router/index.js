@@ -1,16 +1,12 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
- 
 Vue.use(VueRouter)
-
 const contexts = require.context('../views',true,/\.vue$/);
-console.log(contexts,'contexts');
+// console.log(contexts,'contexts');
 let routerArr = [];
 contexts.keys().forEach(key=>{
-    console.log(key);
-
+    // console.log(key);
     // 获取组件配置
-    //debugger
     const componentConfig = contexts(key).default;
     // 剥去文件名开头的 `./` 和`.vue`结尾的扩展名 
     const routePath = key.replace(/^\.\//,'').replace(/\.vue$/,'');
@@ -20,11 +16,8 @@ contexts.keys().forEach(key=>{
         name: componentConfig.name,//缺少name属性！
         component: resolve => require([`../views/${routePath}`],resolve)
     })
-    
 })
-
-console.log(routerArr,'routerArr');
-
+// console.log(routerArr,'routerArr');
 const router = new VueRouter({
 //   routes
     mode:'history',
@@ -32,8 +25,8 @@ const router = new VueRouter({
         ...routerArr,
         {
             path:'/',
-            redirect:'/test',
-            component:()=>import ('../views/now.vue')
+            redirect:'/home',
+            component:()=>import ('../views/home.vue')
         },
         {
             path:'*',
@@ -42,7 +35,6 @@ const router = new VueRouter({
         }
     ]
 })
-
 export default router
  
 
