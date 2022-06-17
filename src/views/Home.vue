@@ -2,32 +2,10 @@
     <div class="home-wrap">
         <el-button @click='homeclick'>home</el-button>
 
-        <div class="list-wrap">
-            <div class="left-name">
-                test name
-            </div>
-            <div class="right-line">
-                <div class="line"></div>
-            </div>
-        </div>
+         
 
 
-        <div class="list-wrap">
-            <div class="left-name">
-                是德州水电费
-            </div>
-            <div class="right-line">
-                <div class="line"></div>
-            </div>
-        </div>
-        <div class="list-wrap">
-            <div class="left-name">
-                是德
-            </div>
-            <div class="right-line">
-                <div class="line"></div>
-            </div>
-        </div>
+         
 
 
     </div>
@@ -44,7 +22,7 @@ export default {
     }
   },
   mounted() {
- 
+    this.homeclick()
   },
   methods: {
      

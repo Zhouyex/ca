@@ -3,7 +3,6 @@
         <!-- <el-button @click="jump">cc</el-button> -->
         <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
             <el-menu-item :index="item.path" v-for="(item,indexs) in dataList" :key="indexs">{{item.path}}</el-menu-item>
-
             <!-- <el-menu-item index="1">处理中心</el-menu-item> -->
             <!-- <el-submenu index="2">
                 <template slot="title">我的工作台</template>
@@ -46,15 +45,10 @@ export default {
         },
         getRoutes(){
             const contexts = require.context('../views',true,/\.vue$/);
-            // console.log(contexts,'contexts');
             let routerArr = [];
             contexts.keys().forEach(key=>{
-                // console.log(key);
-                // 获取组件配置
                 const componentConfig = contexts(key).default;
-                // 剥去文件名开头的 `./` 和`.vue`结尾的扩展名 
                 const routePath = key.replace(/^\.\//,'').replace(/\.vue$/,'');
-                // 全局注册组件
                 if(routePath !== 'default')
                 {
                     routerArr.push({
@@ -63,21 +57,16 @@ export default {
                         component: resolve => require([`../views/${routePath}`],resolve)
                     })
                 }
-               
             });
-
-            console.log(routerArr)
             this.dataList = routerArr;
-
+            this.activeIndex = routerArr[0].path;
 
         },
         handleSelect(key, keyPath){
             console.log(key, keyPath)
-            // this.$router.push()
+            this.$router.push(key)
         }
          
-          
-
     }
 }
 </script>
@@ -85,7 +74,13 @@ export default {
 <style scoped>
     .nav-wrap{
         width: 100%;
-        height: 100px;
-        background-color: pink;
+        /* height: 60px; */
+        /* background-color: pink; */
+        overflow: hidden;
+        /* border-bottom: 1px solid #000 ; */
+    }
+    .nav-wrap .el-menu{
+        /* height: 60px !important; */
+        box-sizing: border-box;
     }
 </style>

@@ -14,7 +14,8 @@ contexts.keys().forEach(key=>{
     routerArr.push({
         path: '/'+routePath,
         name: componentConfig.name,//缺少name属性！
-        component: resolve => require([`../views/${routePath}`],resolve)
+        // component: resolve => require([`../views/${routePath}`],resolve)
+        component: () => import(`../views/${routePath}`)
     })
 })
 // console.log(routerArr,'routerArr');
