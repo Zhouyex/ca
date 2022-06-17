@@ -7,7 +7,7 @@
 
     <div>
         <div>
-            <el-tag>预警</el-tag>
+            <el-tag @click="ccc">预警</el-tag>
             <el-tag>舆情</el-tag>
         </div>
         <div>
@@ -118,6 +118,9 @@ export default {
                 })
 
             },300)
+        },
+        ccc(){
+            console.log(22323)
         }
           
 
