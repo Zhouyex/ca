@@ -1,10 +1,5 @@
 <template>
   <div id="ww">
-
-    <!-- <div v-for="(item,index) in textArr" :key='index'>
-        <scrolls :msg='item.title' :ids='item.id' />
-    </div> -->
-
     <div>
         <div>
             <el-tag @click="ccc">预警</el-tag>
